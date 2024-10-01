@@ -20,6 +20,7 @@
   color: hsl(0, 0%, 100%);
   font-weight: 700;
   position: relative;
+  font-size: 1.5em;
   cursor: pointer;
   mix-blend-mode: difference;
   text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);

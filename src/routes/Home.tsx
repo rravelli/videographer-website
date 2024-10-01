@@ -9,7 +9,6 @@ export function Home() {
       const scrolled = document.scrollingElement?.scrollTop;
       if (scrolled) {
         setScroll(scrolled);
-        console.log(scrolled);
       }
     });
   }, []);

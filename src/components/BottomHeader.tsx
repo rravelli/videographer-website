@@ -5,12 +5,11 @@ export function BottomHeader() {
     <div
       style={{
         alignItems: "center",
-        width: "100vw",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         backgroundColor: "rgb(26,26,26)",
-        padding: 10,
       }}
     >
       <ScrollAnimation animateIn="fadeInLeft">
