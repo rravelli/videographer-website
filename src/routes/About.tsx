@@ -7,6 +7,7 @@ export function About() {
         flexDirection: "column",
         alignItems: "center",
         display: "flex",
+        width: "100%",
         padding: 10,
       }}
     >

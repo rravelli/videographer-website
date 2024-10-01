@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { VideoGrid } from "../components/VideoGrid";
+import "./Home.css";
 
 export function Home() {
   const [scroll, setScroll] = useState(0);
@@ -19,25 +20,29 @@ export function Home() {
         {/* <div className="hero" style={{ position: "absolute", top: 0, left: 0, zIndex: -100 }}></div> */}
         <div
           style={{
-            opacity: 0.5,
+            opacity: 0.6,
             // opacity: Math.min(Math.floor(600000 / (scroll * scroll)) / 100, 0.5),
             left: 0,
             right: 0,
+            height: "100vh",
             position: "absolute",
             zIndex: -99,
+            overflow: "hidden",
           }}
         >
-          <div className="gradient-overlay hero"></div>
-          <iframe
-            width="100%"
-            height={"100%"}
-            src="https://youtube.com/embed/?playlist=sLJp1EGpOsQ&autoplay=1&controls=0&showinfo=0&autohide=1&end=77&mute=1&loop=1"
-            style={{
-              mixBlendMode: "revert",
-              border: "none",
-              aspectRatio: 16 / 9,
-            }}
-          ></iframe>
+          <div className="gradient-overlay"></div>
+          <div className="frame">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://youtube.com/embed/?playlist=sLJp1EGpOsQ&autoplay=1&controls=0&showinfo=0&autohide=1&end=77&mute=1&loop=1"
+              style={{
+                mixBlendMode: "revert",
+                border: "none",
+                aspectRatio: 16 / 9,
+              }}
+            ></iframe>
+          </div>
         </div>
         <div style={{ alignItems: "center", display: "flex", flexDirection: "column" }}>
           <h1

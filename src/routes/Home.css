@@ -1,0 +1,10 @@
+.frame {
+  width: max(100vw, calc(16 / 9 * 100vh));
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+  z-index: -1000;
+  position: relative;
+  transform: translateX(calc(-1 / 2 * max(0vw, calc(16 / 9 * 100vh - 100vw))));
+}

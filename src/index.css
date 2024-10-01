@@ -19,7 +19,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   scrollbar-width: thin;
   font-family: "Fjalla One", sans-serif;

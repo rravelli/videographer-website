@@ -5,7 +5,7 @@ import { BottomHeader } from "./BottomHeader";
 export function Layout() {
   return (
     <>
-      <AppBar scroll={0} />
+      <AppBar />
       <Outlet />
       <BottomHeader />
     </>

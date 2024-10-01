@@ -2,6 +2,7 @@
   /* background: rgb(26, 26, 26); */
   /* background: linear-gradient(180deg, transparent 0%, rgba(189, 189, 189, 0) 72%); */
   z-index: 1000;
+  width: 100vw;
 }
 /*
 .menu-item {
