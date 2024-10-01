@@ -5,4 +5,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   build: { outDir: "build", assetsDir: "static" },
+  base: "https://rravelli.github.io/videographer-website/",
 });
