@@ -5,7 +5,7 @@ export function BottomHeader() {
     <div
       style={{
         alignItems: "center",
-        width: "100%",
+        width: "100vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
