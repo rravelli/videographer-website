@@ -17,11 +17,10 @@ export function Home() {
   return (
     <>
       <div className="wrapper">
-        {/* <div className="hero" style={{ position: "absolute", top: 0, left: 0, zIndex: -100 }}></div> */}
+        <div className="header-background"></div>
         <div
           style={{
-            opacity: 0.6,
-            // opacity: Math.min(Math.floor(600000 / (scroll * scroll)) / 100, 0.5),
+            opacity: 0.7,
             left: 0,
             right: 0,
             height: "100vh",

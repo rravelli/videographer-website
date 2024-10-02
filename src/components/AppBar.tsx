@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./AppBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export function AppBar() {
+  const loc = useLocation();
+
   const navigationItems = [
     { label: "Works", path: "/works/" },
     { label: "About", path: "/about/" },
@@ -19,7 +21,6 @@ export function AppBar() {
         flexDirection: "row",
         display: "flex",
         alignItems: "center",
-        // backgroundColor: `rgba(26,26,26,${Math.min(Math.max(scroll / 50 - 5, 0), 255)})`,
         backgroundColor: "rgba(26,26,26,0.2)",
       }}
     >
@@ -35,11 +36,11 @@ export function AppBar() {
       >
         <div style={{ flexDirection: "row", display: "flex", gap: 30, alignItems: "center" }}>
           <Link to="/" style={{ marginLeft: 5 }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <FontAwesomeIcon style={{ color: "white" }} icon={faHome} />
+            <FontAwesomeIcon className="home-icon" icon={faHome} />
           </Link>
           {navigationItems.map((item) => (
             <Link to={item.path} style={{ textDecorationLine: "none" }} key={item.label}>
-              <p className="menu-item">{item.label}</p>
+              <p className={`menu-item ${loc.pathname === item.path ? "selected" : ""}`}>{item.label}</p>
             </Link>
           ))}
         </div>

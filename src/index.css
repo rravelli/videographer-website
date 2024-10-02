@@ -5,13 +5,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+ 
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+ 
+ 
+
   -moz-osx-font-smoothing: grayscale;
 } */
 
@@ -23,7 +23,12 @@ body {
   overflow-x: hidden; /* Hide horizontal scrollbar */
   scrollbar-width: thin;
   font-family: "Fjalla One", sans-serif;
-  color: rgb(43, 43, 43);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  background-color: rgb(26, 26, 26);
+  /* color: rgb(43, 43, 43); */
+  color: white;
   --shadow-color: #ff9e9e;
   --shadow-color-light: white;
 }
