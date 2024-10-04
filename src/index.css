@@ -67,11 +67,21 @@ button:not([disabled]):hover {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: min(3.2em, 10vw);
   line-height: 1.1;
-  font-family: "Roboto Slab", serif;
 }
 
 p {
   margin-block: 0;
+}
+
+.icon-button {
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 1em;
+  transition: 500ms;
+}
+
+.icon-button:hover {
+  background-color: rgba(240, 240, 240, 0.438);
 }
