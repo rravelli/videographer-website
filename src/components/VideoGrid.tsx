@@ -1,11 +1,19 @@
 import { Col, Container, Row } from "react-grid-system";
-import { VideoCard } from "./VideoCard";
+import { VideoCard, VideoPreview } from "./VideoCard";
 
 export function VideoGrid() {
-  const videos = [
-    { path: "src/assets/Pre-rush V2.mp4", type: "hello" },
-    { path: "src/assets/Pre-rush V2.mp4", type: "hello" },
-    { path: "src/assets/Pre-rush V2.mp4", type: "hello" },
+  const videos: VideoPreview[] = [
+    { path: "videos/example.mp4", type: "Short film", name: "First video" },
+    {
+      path: "https://videos.pexels.com/video-files/2890196/2890196-hd_1920_1080_30fps.mp4",
+      type: "Documentary",
+      name: "Second video",
+    },
+    {
+      path: "https://videos.pexels.com/video-files/6899945/6899945-uhd_4096_2160_25fps.mp4",
+      type: "Live event capture",
+      name: "Third video",
+    },
   ];
   return (
     <Container fluid>

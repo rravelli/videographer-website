@@ -1,0 +1,13 @@
+.instagram {
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  padding: 10px 30px;
+  border-radius: 20px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.instagram:hover {
+  filter: brightness(150%);
+}
