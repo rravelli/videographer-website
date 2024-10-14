@@ -1,6 +1,7 @@
 [
   {
-    "path": "videos/example.mp4",
+    "previewVideo": "videos/example.mp4",
+    "homePage": true,
     "type": "Short film",
     "name": "First video",
     "slug": "first_video",
@@ -9,7 +10,8 @@
     "metadata": { "year": 2022 }
   },
   {
-    "path": "https://videos.pexels.com/video-files/2890196/2890196-hd_1920_1080_30fps.mp4",
+    "previewVideo": "https://videos.pexels.com/video-files/2890196/2890196-hd_1920_1080_30fps.mp4",
+    "homePage": true,
     "type": "Documentary",
     "name": "Second video",
     "slug": "second_video",
@@ -18,10 +20,20 @@
     "metadata": { "year": 2019, "Director of Photography": "James Lee" }
   },
   {
-    "path": "https://videos.pexels.com/video-files/6899945/6899945-uhd_4096_2160_25fps.mp4",
-    "type": "Live event capture",
+    "previewVideo": "https://videos.pexels.com/video-files/6899945/6899945-uhd_4096_2160_25fps.mp4",
+    "homePage": true,
+    "type": "Live event",
     "name": "Third video",
     "slug": "third_video",
+    "fullVideo": "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
+    "description": "",
+    "metadata": { "year": 2020 }
+  },
+  {
+    "homePage": false,
+    "type": "Advertisement",
+    "name": "Fourth video",
+    "slug": "fourth_video",
     "fullVideo": "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
     "description": "",
     "metadata": { "year": 2020 }

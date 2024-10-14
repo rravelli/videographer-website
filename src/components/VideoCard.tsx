@@ -9,7 +9,7 @@ export function VideoCard({ delay, video }: { delay?: number; video: Video }) {
       <Link to={`/works/${video.slug}/`} style={{ textDecorationLine: "none" }}>
         <div className="video-card">
           <video width={"100%"} autoPlay muted loop style={{ aspectRatio: 1, borderRadius: 20, objectFit: "cover" }}>
-            <source src={video.path} />
+            <source src={video.previewVideo} />
           </video>
           <div style={{ padding: 10 }}>
             <p className="video-card-name">{video.name}</p>

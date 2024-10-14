@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import videos from "../assets/videos.json";
 import { NotFound } from "./NotFound";
 import { embedYoutubeLink } from "../utils";
-
+import "./WorkDetails.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export function WorkDetails() {
@@ -28,10 +28,15 @@ export function WorkDetails() {
             textAlign: "center",
           }}
         >
-          <h1 style={{ fontSize: "min(14em, 16vw)", marginBlock: 0, animation: "fadeInUp", animationDuration: "1s" }}>
+          <h1
+            className="rays"
+            style={{ fontSize: "min(10em, 16vw)", marginBlock: 0, animation: "fadeInUp", animationDuration: "1s" }}
+          >
             {video.name}
           </h1>
-          <h2 style={{ marginBlock: 0, animation: "fadeIn", animationDuration: "1500ms" }}>{video.type}</h2>
+          <h2 className="rays" style={{ marginBlock: 0, animation: "slideInUp", animationDuration: "1s" }}>
+            {video.type}
+          </h2>
         </span>
 
         <iframe
@@ -76,6 +81,7 @@ export function WorkDetails() {
           </div>
         )}
         <p style={{ textAlign: "center", margin: "3em 0" }}>{video.description}</p>
+        <div style={{ margin: 200 }} />
       </div>
     </div>
   );

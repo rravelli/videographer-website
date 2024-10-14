@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { VideoGrid } from "../components/VideoGrid";
 import "./Home.css";
+import videos from "../assets/videos.json";
 
 export function Home() {
   const [scroll, setScroll] = useState(0);
@@ -102,7 +103,7 @@ export function Home() {
       </div>
       <div className="videos">
         <div style={{ padding: 10 }}>
-          <VideoGrid />
+          <VideoGrid videos={videos.filter((video) => video?.homePage)} />
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import "./AppBar.css";
+import "./AppBar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 

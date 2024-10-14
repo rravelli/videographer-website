@@ -85,3 +85,22 @@ p {
 .icon-button:hover {
   background-color: rgba(240, 240, 240, 0.438);
 }
+@function shadow-string($color1, $color2, $length){
+  $total-length: $length;
+  $string: $color1 0px 0px;
+  @while $length > 0 {
+    $mix-amount: 100 - (($length / $total-length) * 100);
+    $mixed-color: mix($color1,$color2, $mix-amount);
+    $string-addition: $length+px $length+px;
+    $string: $mixed-color $string-addition, $string;
+    $length: $length - 1;  
+  }
+  @return $string
+}
+
+$color-bg:rgb(26, 26, 26);
+$primary: #00A388;;
+
+@mixin longshadow($color1, $color2, $length) {  
+  text-shadow: shadow-string($color1, $color2, $length);    
+}

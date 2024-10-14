@@ -1,8 +1,9 @@
 export interface Video {
   name: string;
   type: string;
-  path: string;
+  homePage?: boolean;
+  previewVideo?: string;
   slug: string;
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string | number | undefined>;
   description?: string;
 }
