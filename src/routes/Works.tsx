@@ -65,7 +65,7 @@ export function Works() {
             ))}
           </span>
           <Container style={{ margin: 0, width: "100%" }}>
-            <Row style={{ rowGap: 30, width: "100%" }}>
+            <Row style={{ width: "100%" }}>
               {filteredVideo.map((video) => (
                 <Col
                   key={video.name + type}

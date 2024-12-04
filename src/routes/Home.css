@@ -1,3 +1,9 @@
+* {
+  /* --shadow-color: #ff9e9e; */
+  --shadow-color: #45b087;
+  --shadow-color-light: white;
+}
+
 .frame {
   width: max(100vw, calc(16 / 9 * 100vh));
   height: 100vh;
@@ -27,27 +33,120 @@
 
 .main-title {
   font-size: min(15vw, 20em);
-  color: #fff;
+  /* color: #1a1a1a; */
+  color: white;
   font-weight: bolder;
   font-style: normal;
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  mix-blend-mode: difference;
+
   margin-block: 0;
+
   user-select: none;
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
-    0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+  animation: neon 3s infinite;
 }
 
 .subtitle {
   color: white;
-  font-size: min(5vw, 2.5em);
-  mix-blend-mode: difference;
+  font-size: min(4vw, 2.4em);
+  text-transform: uppercase;
   user-select: none;
-  transition: 1s;
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
-    0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+  animation: neon 1s infinite;
+}
+
+.volume-icon {
+  animation: zoomOut 0.5s;
+  transition: 600ms;
+  background: #90909032;
+  padding: 15px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.volume-icon.visible {
+  animation: zoomIn 250ms;
+  opacity: 1;
+  transition: 500ms;
+}
+
+.volume-icon.invisible {
+  animation: zoomOut 300ms;
+  opacity: 0;
+  transition: 300ms;
+}
+
+.volume-icon:hover {
+  transform: scale(1.4);
+}
+
+.arrow-down {
+  animation: arrow 1s infinite;
+  margin-bottom: 5px;
+  mix-blend-mode: difference;
+}
+
+.bottom-area {
+  background: transparent;
+  background: linear-gradient(180deg, rgba(58, 180, 176, 0) 0%, rgba(253, 253, 253, 0.3) 100%);
+  transition: 100ms;
+  cursor: pointer;
+  border-bottom: solid #cacaca 0px;
+}
+
+.bottom-area:hover {
+  border-bottom: solid #ffffff 6px;
+}
+
+.bottom-area:hover .arrow-down {
+  animation: none;
+}
+
+.videos {
+  width: 100vw;
+  margin-top: 680px;
+  padding-top: 100px;
+  padding-bottom: 500px;
+  z-index: 100;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(26, 26, 26);
+}
+
+@keyframes arrow {
+  0% {
+    transform: translateY(-4px);
+  }
+  30% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes neon {
+  0% {
+    text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light),
+      1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light),
+      0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color),
+      0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color),
+      0 0 200px var(--shadow-color);
+  }
+  50% {
+    text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light),
+      1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 5px var(--shadow-color-light),
+      0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light), 0 0 40px var(--shadow-color),
+      0 0 50px var(--shadow-color), 0 0 60px var(--shadow-color), 0 0 80px var(--shadow-color), 0 0 110px var(--shadow-color),
+      0 0 210px var(--shadow-color);
+  }
+  100% {
+    text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light),
+      1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light),
+      0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color),
+      0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color),
+      0 0 200px var(--shadow-color);
+  }
 }

@@ -1,51 +1,73 @@
 import { Link, useLocation } from "react-router-dom";
 import "./AppBar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faAt, faBars, faFilm, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Drawer } from "./Drawer";
+import { useState } from "react";
 
 export function AppBar() {
   const loc = useLocation();
 
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   const navigationItems = [
-    { label: "Works", path: "/works/" },
-    { label: "About", path: "/about/" },
-    { label: "Contact", path: "/contact/" },
+    { label: "Accueil", path: "/", icon: faHome },
+    { label: "Works", path: "/works/", icon: faFilm },
+    { label: "About", path: "/about/", icon: faUser },
+    { label: "Contact", path: "/contact/", icon: faAt },
   ];
 
-  return (
-    <nav
-      className="app-bar"
-      style={{
-        position: "fixed",
+  const isMobile = window.outerWidth < 500;
 
-        flexDirection: "row",
-        display: "flex",
-        alignItems: "center",
-        backgroundColor: "rgba(26,26,26,0.2)",
-      }}
-    >
-      <div
+  return (
+    <>
+      <nav
+        className="app-bar"
         style={{
-          padding: 10,
-          justifyContent: "space-between",
+          position: "fixed",
+
           flexDirection: "row",
           display: "flex",
           alignItems: "center",
-          width: "100%",
+          backgroundColor: "rgba(26,26,26,0.2)",
         }}
       >
-        <div style={{ flexDirection: "row", display: "flex", gap: 30, alignItems: "center" }}>
-          <Link to="/" style={{ marginLeft: 5 }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <FontAwesomeIcon className="home-icon" icon={faHome} />
-          </Link>
-          {navigationItems.map((item) => (
-            <Link to={item.path} style={{ textDecorationLine: "none" }} key={item.label}>
-              <p className={`menu-item ${loc.pathname === item.path ? "selected" : ""}`}>{item.label}</p>
-            </Link>
-          ))}
+        {drawerOpen && isMobile && <Drawer onClose={() => setDrawerOpen(false)} />}
+        <div
+          style={{
+            padding: 10,
+            justifyContent: "space-between",
+            flexDirection: "row",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          {isMobile && (
+            <FontAwesomeIcon
+              onClick={() => setDrawerOpen(true)}
+              icon={faBars}
+              size="xl"
+              style={{ padding: 10, cursor: "pointer" }}
+            />
+          )}
+          {!isMobile && (
+            <div style={{ flexDirection: "row", display: "flex", gap: 20, alignItems: "center" }}>
+              {navigationItems.map((item) => (
+                <Link
+                  to={item.path}
+                  style={{ textDecorationLine: "none", display: "flex", alignItems: "center", gap: 8 }}
+                  key={item.label}
+                  className={`menu-item ${loc.pathname === item.path ? "selected" : ""}`}
+                >
+                  <FontAwesomeIcon size="1x" icon={item.icon} color="white" />
+                  <p style={{ fontSize: "1.2em" }}>{item.label}</p>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
-        <div style={{ color: "white" }}>EN</div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }

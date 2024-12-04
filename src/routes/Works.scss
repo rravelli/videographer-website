@@ -26,8 +26,9 @@
 
 .work-item {
   border: solid 1px transparent;
-  border-radius: 20px;
+  // border-radius: 20px;
   padding: 50px 10px;
+  border: solid 1px rgb(220, 220, 220);
   transition: 500ms;
   background: transparent;
   animation: fadeIn;
@@ -46,11 +47,12 @@
   text-shadow: 0px 15px 5px rgba(172, 172, 172, 0.1), 10px 20px 5px rgba(172, 172, 172, 0.05),
     -10px 15px 5px rgba(172, 172, 172, 0.05); */
     @include longshadow($primary, $color-bg, 120);
+    transform: scale(1.2);
  
 }
 
 .work-item:hover {
-  border: solid 1px rgb(220, 220, 220);
+
  
   /* box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; */
 }
