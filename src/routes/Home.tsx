@@ -95,7 +95,7 @@ export function Home() {
               ref={iframeRef as never}
               width="100%"
               height="100%"
-              src={`https://youtube.com/embed/?playlist=${videoId}&autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=${Number(
+              src={`https://youtube.com/embed/?playlist=${videoId}&autoplay=1&end=77&controls=0&showinfo=0&autohide=1&loop=1&mute=${Number(
                 mute,
               )}&fullscreen=1`}
               style={{
