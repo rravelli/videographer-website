@@ -1,19 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
 
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
- 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
- 
- 
-
-  -moz-osx-font-smoothing: grayscale;
-} */
+$color-bg:rgb(26, 26, 26);
+$primary: #00A388;;
 
 body {
   margin: 0;
@@ -29,19 +17,17 @@ body {
   background-color: rgb(26, 26, 26);
   /* color: rgb(43, 43, 43); */
   color: white;
-  --shadow-color: #ff9e9e;
-  --shadow-color-light: white;
 }
 
 /* CSS */
 button {
-  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
+  background: transparent;
   border: 0;
   border-radius: 12px;
+  border: solid 2px white;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
@@ -49,21 +35,15 @@ button {
   padding: 0 1rem;
   text-align: center;
   text-decoration: none;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
 }
 
-button:not([disabled]):focus {
-  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
-    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
-}
-
-button:not([disabled]):hover {
-  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
-    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+button:hover {
+ background: rgba(255, 255, 255, 0.236);
 }
 
 h1 {
@@ -98,8 +78,7 @@ p {
   @return $string
 }
 
-$color-bg:rgb(26, 26, 26);
-$primary: #00A388;;
+
 
 @mixin longshadow($color1, $color2, $length) {  
   text-shadow: shadow-string($color1, $color2, $length);    

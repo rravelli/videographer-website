@@ -1,7 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./AppBar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAt, faBars, faFilm, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faFilm, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Drawer } from "./Drawer";
 import { useState } from "react";
 
@@ -14,7 +14,6 @@ export function AppBar() {
     { label: "Accueil", path: "/", icon: faHome },
     { label: "Works", path: "/works/", icon: faFilm },
     { label: "About", path: "/about/", icon: faUser },
-    { label: "Contact", path: "/contact/", icon: faAt },
   ];
 
   const isMobile = window.outerWidth < 500;
@@ -51,6 +50,7 @@ export function AppBar() {
               style={{ padding: 10, cursor: "pointer" }}
             />
           )}
+
           {!isMobile && (
             <div style={{ flexDirection: "row", display: "flex", gap: 20, alignItems: "center" }}>
               {navigationItems.map((item) => (
@@ -66,6 +66,9 @@ export function AppBar() {
               ))}
             </div>
           )}
+          <NavLink to={"/contact"}>
+            <button>Me contacter</button>
+          </NavLink>
         </div>
       </nav>
     </>

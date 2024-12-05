@@ -1,4 +1,4 @@
-import { faAt, faFilm, faHome, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFilm, faHome, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -8,7 +8,6 @@ export function Drawer({ onClose }: { onClose: () => void }) {
     { label: "Accueil", path: "/", icon: faHome },
     { label: "Works", path: "/works/", icon: faFilm },
     { label: "About", path: "/about/", icon: faUser },
-    { label: "Contact", path: "/contact/", icon: faAt },
   ];
 
   return (

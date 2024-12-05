@@ -1,0 +1,55 @@
+.social {
+  padding: 10px 30px;
+  border-radius: 20px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.social:hover {
+  filter: brightness(110%);
+}
+
+.instagram {
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+}
+
+@mixin dots($count) {
+  $text-shadow: ();
+  @for $i from 0 through $count {
+    $text-shadow: $text-shadow, (-0.5+ (random()) * 3) + em (-0.5+ (random()) * 3) + em 7px hsla(random() * 360, 100%, 50%, 0.9);
+  }
+  text-shadow: $text-shadow;
+}
+
+
+
+
+.contact-background::before {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  content: ".";
+  z-index: -2000;
+  mix-blend-mode: screen;
+  animation: 44s -27s move infinite ease-in-out alternate;
+}
+
+
+.contact-background::before {
+  @include dots(40);
+  animation-duration: 41s;
+  animation-delay: -19s;
+}
+
+@keyframes move {
+  from {
+    transform: rotate(0deg) scale(12) translateX(-20px);
+  }
+  to {
+    transform: rotate(360deg) scale(18) translateX(20px);
+  }
+}
