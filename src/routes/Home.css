@@ -40,19 +40,25 @@
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-
   margin-block: 0;
-
   user-select: none;
-  animation: neon 3s infinite;
+  text-shadow: -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light),
+    1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light),
+    0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color),
+    0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
 }
 
 .subtitle {
   color: white;
-  font-size: min(4vw, 2.4em);
+  font-size: min(5vw, 2.4em);
   text-transform: uppercase;
   user-select: none;
-  animation: neon 1s infinite;
+  text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light),
+    1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 5px var(--shadow-color-light),
+    0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light), 0 0 40px var(--shadow-color),
+    0 0 210px var(--shadow-color);
+  /*  0 0 50px var(--shadow-color), 0 0 60px var(--shadow-color), 0 0 80px var(--shadow-color), 0 0 110px var(--shadow-color),
+    0 0 210px var(--shadow-color); */
 }
 
 .volume-icon {

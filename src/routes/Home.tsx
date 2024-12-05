@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { VideoGrid } from "../components/VideoGrid";
 import "./Home.css";
 import videos from "../assets/videos.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleDown, faChevronCircleUp, faVolumeUp, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleDown, faChevronCircleUp, faExpand, faVolumeUp, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
 
 export function Home() {
   const [scroll, setScroll] = useState(0);
   const [mute, setMute] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>();
 
   const offset1 = 300;
   const offset2 = 1600;
+  // const videoId = "8cxfuFUi-K4";
+  const videoId = "sLJp1EGpOsQ";
 
   function onScroll() {
     const scrolled = document.scrollingElement?.scrollTop;
@@ -70,12 +73,31 @@ export function Home() {
             }}
           />
           <div className="frame">
-            <iframe
+            {/* <video
               width="100%"
               height="100%"
-              src={`https://youtube.com/embed/?playlist=sLJp1EGpOsQ&autoplay=1&controls=0&showinfo=0&autohide=1&end=77&loop=1&mute=${Number(
+              autoPlay
+              muted={mute}
+              loop
+            
+              style={{
+                mixBlendMode: "revert",
+                position: "fixed",
+                opacity: Math.min(1, scroll / 300 + 0.5),
+                border: "none",
+                aspectRatio: 16 / 9,
+                filter: `blur(${Math.min(Math.max(-scroll / 3 + 100, 0), 15)}px)`,
+              }}
+            >
+              <source src="https://videos.pexels.com/video-files/6899945/6899945-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+            </video> */}
+            <iframe
+              ref={iframeRef as never}
+              width="100%"
+              height="100%"
+              src={`https://youtube.com/embed/?playlist=${videoId}&autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=${Number(
                 mute,
-              )}`}
+              )}&fullscreen=1`}
               style={{
                 mixBlendMode: "revert",
                 position: "fixed",
@@ -141,9 +163,17 @@ export function Home() {
         size="lg"
         onClick={() => setMute(!mute)}
         icon={mute ? faVolumeXmark : faVolumeUp}
-        style={{ position: "fixed", top: 100, right: "7vw" }}
+        style={{ position: "fixed", top: 70, right: "7vw" }}
+      />
+      <FontAwesomeIcon
+        className={`volume-icon ${scroll > offset1 && scroll < offset2 - 400 ? "visible" : "invisible"}`}
+        size="lg"
+        onClick={() => iframeRef.current?.requestFullscreen()}
+        icon={faExpand}
+        style={{ position: "fixed", top: 70, left: "7vw" }}
       />
       <div className="videos">
+        <h1>Mes projets</h1>
         <div style={{ padding: 10 }}>
           <VideoGrid videos={videos.filter((video) => video?.homePage)} />
         </div>
