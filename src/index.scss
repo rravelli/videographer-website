@@ -7,21 +7,15 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  width: 100vw;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-  scrollbar-width: thin;
-  font-family: "Fjalla One", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-synthesis: none;
-  background-color: rgb(26, 26, 26);
-  /* color: rgb(43, 43, 43); */
-  color: white;
 
+
+
+
+
+
+
+body:has(dialog[open]) {
+  overflow-y: hidden;
 }
 
 a {
