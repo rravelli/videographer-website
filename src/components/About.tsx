@@ -1,18 +1,19 @@
 import ScrollAnimation from "react-animate-on-scroll";
-
+import "./About.css";
 export function About() {
   return (
     <ScrollAnimation
       scrollableParentSelector="#root"
-      style={{ scrollSnapAlign: "center" }}
+      style={{ scrollSnapAlign: "center", position: "relative" }}
       animateOut="fadeOut"
       animateIn="fadeInLeft"
       duration={0.5}
     >
       <section
+        className="about-container"
         style={{
           display: "flex",
-          flexDirection: "row",
+          height: "100vh",
           padding: 100,
           gap: 60,
           alignItems: "center",
@@ -32,6 +33,17 @@ export function About() {
           </text>
         </div>
       </section>
+      {/* <div
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: "-30vh",
+          bottom: 0,
+          backgroundColor: "rgba(0,0,0,0.5)",
+          zIndex: -1,
+        }}
+      ></div> */}
     </ScrollAnimation>
   );
 }

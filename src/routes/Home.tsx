@@ -8,6 +8,11 @@ import { About } from "../components/About";
 import { Header } from "../components/Header";
 
 export function Home() {
+  const root = document.getElementById("root");
+  if (root) {
+    root.scrollTo({ behavior: "smooth", top: 0 });
+  }
+
   return (
     <>
       <div
@@ -25,7 +30,7 @@ export function Home() {
           gap: 10,
         }}
       >
-        <a href="mailto:julie_ravelli@orange.fr">julli_ravelli@orange.fr</a>
+        <a href="mailto:julie_ravelli@orange.fr">julie_ravelli@orange.fr</a>
 
         <a href="https://www.instagram.com/julie.rlli/">
           <FontAwesomeIcon size="2xl" icon={faInstagram} />
@@ -38,7 +43,7 @@ export function Home() {
       <About />
       <ShowReel />
       <Filmography />
-      <section style={{ height: 400 }}></section>
+      {/* <section style={{ height: 400 }}></section> */}
     </>
   );
 }

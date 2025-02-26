@@ -1,6 +1,9 @@
+import { useRef } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export function ShowReel() {
+  const ref = useRef<HTMLVideoElement>(null);
+
   const text = Array(Math.ceil(window.innerWidth / 100) * 2)
     .fill(0)
     .map(() => "SHOW REEL 2024 • ")
@@ -12,7 +15,13 @@ export function ShowReel() {
       animateOut="fadeOut"
       animateIn="fadeInRight"
       duration={0.5}
-      style={{ scrollSnapAlign: "start" }}
+      afterAnimatedOut={() => {
+        if (ref.current) {
+          ref.current.pause();
+        }
+        return undefined;
+      }}
+      style={{ scrollSnapAlign: "center" }}
     >
       <section
         id="show-reel"
@@ -32,6 +41,7 @@ export function ShowReel() {
         <div>
           <video
             controls
+            ref={ref}
             style={{
               width: "100%",
               maxWidth: 1200,
