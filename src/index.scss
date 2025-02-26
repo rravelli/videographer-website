@@ -3,6 +3,10 @@
 $color-bg:rgb(26, 26, 26);
 $primary: #00A388;;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -17,6 +21,16 @@ body {
   background-color: rgb(26, 26, 26);
   /* color: rgb(43, 43, 43); */
   color: white;
+
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
+
+a:hover {
+  color: rgb(121, 237, 204)
 }
 
 /* CSS */
@@ -27,8 +41,9 @@ button {
   border: solid 2px white;
   color: #ffffff;
   cursor: pointer;
+  text-transform: uppercase;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 2.5;
   outline: transparent;
