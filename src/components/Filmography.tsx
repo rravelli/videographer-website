@@ -5,7 +5,7 @@ import { Col, Container, Row } from "react-grid-system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faClose } from "@fortawesome/free-solid-svg-icons";
 import { VideoCard } from "./VideoCard";
-
+import VIDEODATA from "../assets/videos.json";
 interface YoutubeInfo {
   title: string;
   thumbnail_url: string;
@@ -14,29 +14,13 @@ interface YoutubeInfo {
   thumbnail_width: number;
 }
 
-const videos = [
-  "https://www.youtube.com/watch?v=9l5JFBJSLYw&list=PLBDZkqh1aBeJ55mFhnd4ZKYCp-XLWapPU&index=3",
-  "https://youtu.be/CNvS1W8CsHY?si=jWiAW1G1VXjuYMYn",
-  "https://www.youtube.com/watch?v=9soykcI2xJQ&list=PLBDZkqh1aBeKi__HUEonA7FQZ-BjDFTX4&index=1",
-  "https://www.youtube.com/watch?v=c7GDDwWKAAk&list=PLBDZkqh1aBeKi__HUEonA7FQZ-BjDFTX4&index=11",
-  "https://www.youtube.com/watch?v=2CBFFWvdP3U&list=PLBDZkqh1aBeJ55mFhnd4ZKYCp-XLWapPU&index=1",
-  "https://www.youtube.com/watch?v=eMMfWd0BiK8&list=PLBDZkqh1aBeLPLS9AoEKaJIRAcg93uTp9&index=3",
-  "https://www.youtube.com/watch?v=oVJb0k6eop0&list=PLBDZkqh1aBeLPLS9AoEKaJIRAcg93uTp9&index=6",
-  "https://www.youtube.com/watch?v=v4Tx0BfyMsM&list=PLBDZkqh1aBeLPLS9AoEKaJIRAcg93uTp9&index=1",
-  "https://www.youtube.com/watch?v=DnA8DQmpPNY&list=PLBDZkqh1aBeKi__HUEonA7FQZ-BjDFTX4&index=10",
-  "https://www.youtube.com/watch?v=ttxKE3xr7xA&list=PLBDZkqh1aBeK6ibD90ldkDwbYvIB6_KHJ&index=1",
-];
-
 export function Filmography() {
-  //   const links = videos.map((v) => {
-  //     const id = new URL(v).searchParams.get("v");
-  //     return `https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`;
-  //   });
   const ref = useRef<HTMLDialogElement>(null);
   const [videosInfo, setVideosInfo] = useState<YoutubeInfo[] | undefined>(undefined);
   const [selectedVideo, setSelectedVideo] = useState<number | undefined>();
+
   useEffect(() => {
-    Promise.all(videos.map((v) => fetch(`https://www.youtube.com/oembed?url=${v}`).then((r) => r.json()))).then((res) =>
+    Promise.all(VIDEODATA.map((v) => fetch(`https://www.youtube.com/oembed?url=${v.url}`).then((r) => r.json()))).then((res) =>
       setVideosInfo(res as YoutubeInfo[]),
     );
   }, []);
@@ -57,7 +41,7 @@ export function Filmography() {
     }
   }
 
-  const selectedId = selectedVideo !== undefined ? getVideoId(videos[selectedVideo]) : null;
+  const selectedId = selectedVideo !== undefined ? getVideoId(VIDEODATA[selectedVideo].url) : null;
 
   return (
     <>
@@ -72,7 +56,7 @@ export function Filmography() {
           textAlign: "center",
           zIndex: 2,
           backgroundColor: "#1a1a1a",
-          background: "linear-gradient(0deg, rgba(58,180,176,0) 0%, #1a1a1a 100%)",
+          background: "linear-gradient(0deg, rgba(58,180,176,0) 0%, #1a1a1a 80%)",
         }}
       >
         Filmographie
@@ -98,6 +82,7 @@ export function Filmography() {
                         index={index}
                         title={v.title}
                         key={index}
+                        type={VIDEODATA[index].type}
                         onClick={() => handleClick(index)}
                       />
                     </Col>
@@ -135,11 +120,11 @@ export function Filmography() {
                     <Col xs={12} sm={4} lg={3} style={{ padding: 5 }} key={index}>
                       <VideoCard
                         key={index}
-                        type="Court-Métrage"
                         title={v.title}
                         index={index}
                         image={v.thumbnail_url}
                         onClick={() => handleClick(index + 3)}
+                        type={VIDEODATA[index + 3].type}
                       />
                     </Col>
                   ))}
@@ -172,7 +157,7 @@ export function Filmography() {
           borderRadius: 20,
           borderColor: "white",
           padding: 0,
-          paddingBottom: 15,
+          paddingBottom: 20,
         }}
       >
         <div

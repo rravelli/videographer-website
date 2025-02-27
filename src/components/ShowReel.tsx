@@ -31,7 +31,7 @@ export function ShowReel() {
           display: "flex",
           width: "100%",
           alignItems: "center",
-
+          minHeight: "100vh",
           backgroundColor: "#2C2C2C ",
         }}
       >

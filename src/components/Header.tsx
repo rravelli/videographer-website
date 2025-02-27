@@ -26,7 +26,7 @@ export function Header() {
       >
         <source src="videos/SHOWREEL JULIE RAVELLI 2024.mp4" type="video/mp4" />
       </video>
-      <div style={{ position: "absolute", bottom: 0, left: 0, padding: "5vw", display: "flex", flexDirection: "column" }}>
+      <div style={{ position: "absolute", bottom: 40, left: 0, padding: "5vw", display: "flex", flexDirection: "column" }}>
         <h1 style={{ textTransform: "uppercase", margin: 0 }}>Julie Ravelli</h1>
         <span style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
           <h2>Réalisatrice</h2>

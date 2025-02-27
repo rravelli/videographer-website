@@ -1,41 +1,30 @@
 [
   {
-    "previewVideo": "videos/example.mp4",
-    "homePage": true,
-    "type": "Short film",
-    "name": "First video",
-    "slug": "first_video",
-    "description": "This is a big video",
-    "fullVideo": "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
-    "metadata": { "year": 2022 }
+    "url": "https://www.youtube.com/watch?v=9l5JFBJSLYw&list=PLBDZkqh1aBeJ55mFhnd4ZKYCp-XLWapPU&index=3",
+    "type": "Court-Métrage"
   },
   {
-    "previewVideo": "https://videos.pexels.com/video-files/2890196/2890196-hd_1920_1080_30fps.mp4",
-    "homePage": true,
-    "type": "Documentary",
-    "name": "Second video",
-    "slug": "second_video",
-    "fullVideo": "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
-    "description": "",
-    "metadata": { "year": 2019, "Director of Photography": "James Lee" }
+    "url": "https://youtu.be/CNvS1W8CsHY?si=jWiAW1G1VXjuYMYn",
+    "type": "Court-Métrage"
   },
   {
-    "previewVideo": "https://videos.pexels.com/video-files/6899945/6899945-uhd_4096_2160_25fps.mp4",
-    "homePage": true,
-    "type": "Live event",
-    "name": "Third video",
-    "slug": "third_video",
-    "fullVideo": "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
-    "description": "",
-    "metadata": { "year": 2020 }
+    "url": "https://www.youtube.com/watch?v=9soykcI2xJQ&list=PLBDZkqh1aBeKi__HUEonA7FQZ-BjDFTX4&index=1",
+    "type": "Captation"
   },
   {
-    "homePage": false,
-    "type": "Advertisement",
-    "name": "Fourth video",
-    "slug": "fourth_video",
-    "fullVideo": "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
-    "description": "",
-    "metadata": { "year": 2020 }
-  }
+    "url": "https://www.youtube.com/watch?v=c7GDDwWKAAk&list=PLBDZkqh1aBeKi__HUEonA7FQZ-BjDFTX4&index=11",
+    "type": "Captation"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=2CBFFWvdP3U&list=PLBDZkqh1aBeJ55mFhnd4ZKYCp-XLWapPU&index=1",
+    "type": "Court-Métrage"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=eMMfWd0BiK8&list=PLBDZkqh1aBeLPLS9AoEKaJIRAcg93uTp9&index=3",
+    "type": "Reportage"
+  },
+  { "url": "https://www.youtube.com/watch?v=oVJb0k6eop0&list=PLBDZkqh1aBeLPLS9AoEKaJIRAcg93uTp9&index=6", "type": "Reportage" },
+  { "url": "https://www.youtube.com/watch?v=v4Tx0BfyMsM&list=PLBDZkqh1aBeLPLS9AoEKaJIRAcg93uTp9&index=1", "type": "Reportage" },
+  { "url": "https://www.youtube.com/watch?v=DnA8DQmpPNY&list=PLBDZkqh1aBeKi__HUEonA7FQZ-BjDFTX4&index=10", "type": "Captation" },
+  { "url": "https://www.youtube.com/watch?v=ttxKE3xr7xA&list=PLBDZkqh1aBeK6ibD90ldkDwbYvIB6_KHJ&index=1", "type": "Making of" }
 ]
