@@ -6,19 +6,8 @@ import { Filmography } from "../components/Filmography";
 import { ShowReel } from "../components/ShowReel";
 import { About } from "../components/About";
 import { Header } from "../components/Header";
-import { useEffect } from "react";
 
 export function Home() {
-  useEffect(() => {
-    const root = document.getElementById("root");
-    if (root) {
-      console.log("Hello");
-      root.addEventListener("scroll", console.log);
-      document.scrollingElement?.addEventListener("scroll", console.log);
-      return () => root.removeEventListener("scroll", console.log);
-    }
-  }, []);
-
   return (
     <>
       <div

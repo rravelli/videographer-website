@@ -1,23 +1,8 @@
-import html2canvas from "html2canvas";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export function ShowReel() {
   const ref = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    if (CSS.supports("background-image", "-moz-element(#test)")) {
-      return;
-    }
-
-    const text = document.getElementById("text");
-    const showReel = document.getElementById("show-reel");
-    if (text && showReel) {
-      html2canvas(text, { backgroundColor: "transparent" }).then((canvas) => {
-        showReel.style.backgroundImage = `url('${canvas.toDataURL()}')`;
-        showReel.style.backgroundRepeat = "repeat";
-      });
-    }
-  }, []);
   return (
     <ScrollAnimation
       scrollableParentSelector="#root"
@@ -36,40 +21,20 @@ export function ShowReel() {
       <section
         id="show-reel"
         style={{
-          flexDirection: "row",
+          flexDirection: "column",
           justifyContent: "center",
           position: "relative",
           display: "flex",
           width: "100vw",
           alignItems: "center",
           minHeight: "100vh",
-          backgroundColor: "#2C2C2C ",
+          backgroundColor: "#2C2C2C",
           backgroundImage: "-moz-element(#repeat)",
           backgroundRepeat: "repeat-y",
+          background: "repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a 10px,#2C2C2C 10px,#2C2C2C 20px)",
         }}
       >
-        <div id="text" style={{ width: 200, fontSize: 30, position: "absolute", color: "gray" }}>
-          SHOW REEL 2024
-        </div>
-        <div id="repeat" style={{ position: "absolute", width: "100%", left: "-200%" }}>
-          <div
-            style={{
-              backgroundImage: "-moz-element(#text)",
-              display: "flex",
-              height: 40,
-            }}
-          />
-          <div
-            style={{
-              backgroundImage: "-moz-element(#text)",
-              display: "flex",
-              animationDelay: "1s",
-              height: 40,
-
-              backgroundPositionX: 70,
-            }}
-          />
-        </div>
+        <div style={{ fontSize: "min(9vw,45px)", fontFamily: "Lobster" }}>Show reel 2024</div>
         <video
           controls
           ref={ref}
@@ -79,19 +44,11 @@ export function ShowReel() {
             maxWidth: "100vw",
             aspectRatio: 16 / 9,
             zIndex: 2,
-            border: "dashed 10px white",
+            border: "solid 10px white",
           }}
         >
           <source src="videos/SHOWREEL JULIE RAVELLI 2024.mp4" type="video/mp4" />
         </video>
-
-        {/* <div className="headband">
-          <div className="scrolling-text" style={{ fontWeight: "bolder" }}>
-            {text}
-          </div>
-        </div> */}
-
-        {/* <div style={{ rotate: "90deg", fontSize: 300, right: 0 }}>REEL</div> */}
       </section>
     </ScrollAnimation>
   );
