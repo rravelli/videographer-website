@@ -4,10 +4,6 @@ import ScrollAnimation from "react-animate-on-scroll";
 export function ShowReel() {
   const ref = useRef<HTMLVideoElement>(null);
 
-  const text = Array(Math.ceil(window.innerWidth / 100) * 2)
-    .fill(0)
-    .map(() => "SHOW REEL 2024 • ")
-    .join("");
   return (
     <ScrollAnimation
       scrollableParentSelector="#root"
@@ -26,37 +22,63 @@ export function ShowReel() {
       <section
         id="show-reel"
         style={{
-          flexDirection: "column",
+          flexDirection: "row",
           justifyContent: "center",
+          position: "relative",
           display: "flex",
-          width: "100%",
+          width: "100vw",
           alignItems: "center",
           minHeight: "100vh",
           backgroundColor: "#2C2C2C ",
+          backgroundImage: "-moz-element(#repeat)",
+          backgroundRepeat: "repeat-y",
+          backgroundAttachment: "fixed",
         }}
       >
-        <div className="headband">
-          <div className="scrolling-text">{text}</div>
+        <div id="text" style={{ width: 200, fontSize: 30, position: "absolute", color: "gray" }}>
+          SHOW REEL 2024
         </div>
-        <div>
-          <video
-            controls
-            ref={ref}
+        <div id="repeat" style={{ position: "absolute", width: "100%", left: "-200%" }}>
+          <div
             style={{
-              width: "100%",
-              maxWidth: 1200,
-              aspectRatio: 16 / 9,
-              position: "relative",
+              backgroundImage: "-moz-element(#text)",
+              display: "flex",
+              height: 40,
             }}
-          >
-            <source src="videos/SHOWREEL JULIE RAVELLI 2024.mp4" type="video/mp4" />
-          </video>
+          />
+          <div
+            style={{
+              backgroundImage: "-moz-element(#text)",
+              display: "flex",
+              animationDelay: "1s",
+              height: 40,
+
+              backgroundPositionX: 70,
+            }}
+          />
         </div>
-        <div className="headband">
+        <video
+          controls
+          ref={ref}
+          style={{
+            height: "90%",
+            maxHeight: 600,
+            maxWidth: "100vw",
+            aspectRatio: 16 / 9,
+            zIndex: 2,
+            border: "dashed 10px white",
+          }}
+        >
+          <source src="videos/SHOWREEL JULIE RAVELLI 2024.mp4" type="video/mp4" />
+        </video>
+
+        {/* <div className="headband">
           <div className="scrolling-text" style={{ fontWeight: "bolder" }}>
             {text}
           </div>
-        </div>
+        </div> */}
+
+        {/* <div style={{ rotate: "90deg", fontSize: 300, right: 0 }}>REEL</div> */}
       </section>
     </ScrollAnimation>
   );
