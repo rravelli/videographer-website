@@ -1,9 +1,23 @@
-import { useRef } from "react";
+import html2canvas from "html2canvas";
+import { useEffect, useRef } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export function ShowReel() {
   const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    if (CSS.supports("background-image", "-moz-element(#test)")) {
+      return;
+    }
 
+    const text = document.getElementById("text");
+    const showReel = document.getElementById("show-reel");
+    if (text && showReel) {
+      html2canvas(text, { backgroundColor: "transparent" }).then((canvas) => {
+        showReel.style.backgroundImage = `url('${canvas.toDataURL()}')`;
+        showReel.style.backgroundRepeat = "repeat";
+      });
+    }
+  }, []);
   return (
     <ScrollAnimation
       scrollableParentSelector="#root"
@@ -32,7 +46,6 @@ export function ShowReel() {
           backgroundColor: "#2C2C2C ",
           backgroundImage: "-moz-element(#repeat)",
           backgroundRepeat: "repeat-y",
-          backgroundAttachment: "fixed",
         }}
       >
         <div id="text" style={{ width: 200, fontSize: 30, position: "absolute", color: "gray" }}>

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Col, Container, Row } from "react-grid-system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp, faClose } from "@fortawesome/free-solid-svg-icons";
 import { VideoCard } from "./VideoCard";
 import VIDEODATA from "../assets/videos.json";
 interface YoutubeInfo {
@@ -49,9 +49,9 @@ export function Filmography() {
         style={{
           fontFamily: "Lobster",
           position: "sticky",
-          top: 0,
+          top: -2,
           left: 0,
-          paddingTop: 20,
+          paddingTop: 22,
           right: 0,
           textAlign: "center",
           zIndex: 2,
@@ -70,7 +70,21 @@ export function Filmography() {
         duration={0.5}
       >
         <section id="filmography" style={{ alignItems: "center", display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-          <h2 style={{ paddingTop: 60 }}>Mes derniers projets</h2>
+          <a href="#filmography2">
+            <div style={{ display: "flex", paddingTop: 60, alignItems: "center", gap: 5, cursor: "pointer" }}>
+              <h2>Mes derniers projets</h2>
+              <ScrollAnimation
+                scrollableParentSelector="#root"
+                animateIn="slideInDown"
+                animateOut="slideOutDown"
+                duration={0.5}
+                offset={50}
+                animatePreScroll
+              >
+                <FontAwesomeIcon icon={faChevronDown} size="sm" />
+              </ScrollAnimation>
+            </div>
+          </a>
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <Container fluid>
               <Row gutterWidth={0}>
@@ -89,16 +103,6 @@ export function Filmography() {
                   ))}
               </Row>
             </Container>
-            <ScrollAnimation
-              scrollableParentSelector="#root"
-              style={{ justifyContent: "center", display: "flex", marginTop: 30 }}
-              animateIn="zoomInDown"
-              animateOut="fadeOut"
-              duration={1}
-              animatePreScroll
-            >
-              <FontAwesomeIcon icon={faChevronDown} size="xl" />
-            </ScrollAnimation>
           </div>
         </section>
       </ScrollAnimation>
@@ -111,7 +115,21 @@ export function Filmography() {
         duration={0.5}
       >
         <section id="filmography2" style={{ alignItems: "center", display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-          <h2 style={{ paddingTop: 60 }}>Tous mes projets</h2>
+          <a href="#filmography">
+            <div style={{ display: "flex", paddingTop: 60, alignItems: "center", gap: 5, cursor: "pointer" }}>
+              <h2>Tous mes projets</h2>
+              <ScrollAnimation
+                scrollableParentSelector="#root"
+                animateIn="slideInDown"
+                animateOut="slideOutDown"
+                duration={0.5}
+                offset={100}
+                animatePreScroll
+              >
+                <FontAwesomeIcon icon={faChevronUp} size="sm" />
+              </ScrollAnimation>
+            </div>
+          </a>
           <div style={{ width: "100%", maxWidth: 1600 }}>
             <Container fluid>
               <Row gutterWidth={0}>
