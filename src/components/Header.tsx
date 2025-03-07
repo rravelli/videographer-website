@@ -1,3 +1,6 @@
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export function Header() {
   return (
     <header style={{ position: "relative", scrollSnapAlign: "start" }}>
@@ -37,10 +40,18 @@ export function Header() {
         <span style={{ display: "flex", gap: 10 }}>
           <button style={{ width: "50%" }}>
             <a
-              style={{ textDecorationLine: "none", color: "white", display: "flex", justifyContent: "center" }}
+              style={{
+                textDecorationLine: "none",
+                color: "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 10,
+              }}
               href="#show-reel"
             >
-              Show Reel
+              <FontAwesomeIcon icon={faPlay} />
+              <p>Show Reel</p>
             </a>
           </button>
           <button style={{ width: "50%" }}>

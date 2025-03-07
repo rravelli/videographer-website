@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export function VideoCard({
@@ -5,6 +6,7 @@ export function VideoCard({
   index,
   image,
   title,
+  key,
   type,
 }: {
   onClick: () => void;
@@ -12,9 +14,20 @@ export function VideoCard({
   image: string;
   title: string;
   type?: string;
+  key?: string | number;
 }) {
+  const ref = useRef<ScrollAnimation>(null);
+
   return (
-    <ScrollAnimation scrollableParentSelector="#root" animateIn="fadeInUp" delay={index * 100}>
+    <ScrollAnimation
+      ref={ref}
+      key={key}
+      scrollableParentSelector="#root"
+      animateIn="fadeInUp"
+      delay={document.body.clientWidth > 1000 ? index * 100 : 0}
+      duration={0.5}
+      animateOut="fadeOut"
+    >
       <div
         onClick={onClick}
         className="video-card"

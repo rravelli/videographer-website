@@ -7,13 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
-
-
-
-
-
 body:has(dialog[open]) {
   overflow-y: hidden;
 }

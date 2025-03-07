@@ -1,8 +1,11 @@
-import { useRef } from "react";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRef, useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export function ShowReel() {
   const ref = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
   return (
     <ScrollAnimation
       scrollableParentSelector="#root"
@@ -29,15 +32,30 @@ export function ShowReel() {
           alignItems: "center",
           minHeight: "100vh",
           backgroundColor: "#2C2C2C",
-          backgroundImage: "-moz-element(#repeat)",
-          backgroundRepeat: "repeat-y",
-          background: "repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a 10px,#2C2C2C 10px,#2C2C2C 20px)",
+          backgroundImage: "url('https://pngimg.com/d/star_PNG76909.png')",
         }}
       >
         <div style={{ fontSize: "min(9vw,45px)", fontFamily: "Lobster" }}>Show reel 2024</div>
+        {paused && (
+          <FontAwesomeIcon
+            style={{ position: "absolute", zIndex: 3 }}
+            size="3x"
+            onClick={() => {
+              ref.current?.play();
+            }}
+            icon={faPlay}
+          />
+        )}
         <video
           controls
+          loop
           ref={ref}
+          onPause={() => {
+            setPaused(true);
+          }}
+          onPlay={() => {
+            setPaused(false);
+          }}
           style={{
             height: "90%",
             maxHeight: 600,
