@@ -24,6 +24,12 @@ function getMaxElement(cl: ScreenClass) {
     case "md":
       return 8;
     case "sm":
+      if (document.body.clientHeight < 500) {
+        return 3;
+      }
+      if (document.body.clientHeight < 700) {
+        return 6;
+      }
       return 9;
     case "xs":
       return 2;
@@ -32,13 +38,32 @@ function getMaxElement(cl: ScreenClass) {
   }
 }
 
+let triggerScroll = 0;
+
 export function Filmography() {
   const ref = useRef<HTMLDialogElement>(null);
   const [videosInfo, setVideosInfo] = useState<YoutubeInfo[] | undefined>(undefined);
   const [selectedVideo, setSelectedVideo] = useState<number | undefined>();
   const cl = useScreenClass();
   const pageSize = useMemo(() => getMaxElement(cl), [cl]);
+  console.log(pageSize);
   const pageCount = useMemo(() => Math.ceil((VIDEODATA.length - 3) / pageSize), [pageSize]);
+
+  function handleHorizontalScroll(e: React.UIEvent<HTMLDivElement, UIEvent>) {
+    const pageIndicator = document.getElementById("page-indicator");
+    const root = document.getElementById("root");
+    const marker = document.getElementById("filmography2");
+    if (!pageIndicator || !root || !marker) return;
+    const horizontalStartingOffset = root.scrollTop + marker.getBoundingClientRect().top;
+    const offset = e.currentTarget.scrollLeft;
+    const newHorizontalOffset = horizontalStartingOffset + (offset / document.body.clientWidth) * document.body.clientHeight;
+    if (triggerScroll > 0) {
+      triggerScroll--;
+    } else {
+      root.scrollTo({ behavior: "instant", top: newHorizontalOffset });
+    }
+    pageIndicator.style.transform = `translateX(${Math.max((offset / document.body.clientWidth) * 35, 0)}px)`;
+  }
 
   useEffect(() => {
     Promise.all(VIDEODATA.map((v) => fetch(`https://www.youtube.com/oembed?url=${v.url}`).then((r) => r.json()))).then((res) =>
@@ -49,17 +74,19 @@ export function Filmography() {
       const root = document.getElementById("root");
       const marker = document.getElementById("filmography2");
       const pageIndicator = document.getElementById("page-indicator");
-
       if (wrapper && root && marker && pageIndicator) {
         const offset = -marker.getBoundingClientRect().top;
         const offsetRatio = offset / ((pageCount - 1) * document.body.clientHeight);
-        wrapper.scrollTo({
-          behavior: "smooth",
-          left: offsetRatio * (pageCount - 1) * document.body.clientWidth,
-        });
-        pageIndicator.style.transform = `translateX(${Math.max((offset / document.body.clientHeight) * 35, 0)}px)`;
+        if (offsetRatio > 0) {
+          triggerScroll++;
+          wrapper.scrollTo({
+            behavior: "smooth",
+            left: offsetRatio * (pageCount - 1) * document.body.clientWidth,
+          });
+        }
       }
     }
+
     const root = document.getElementById("root");
     if (root) {
       root.addEventListener("scroll", handleScroll);
@@ -183,6 +210,7 @@ export function Filmography() {
           {videosInfo && (
             <div
               id="horizontal-wrapper"
+              onScroll={handleHorizontalScroll}
               className="no-scrollbar"
               style={{
                 display: "flex",
